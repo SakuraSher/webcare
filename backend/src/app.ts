@@ -4,6 +4,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import protectedRouter from './routes/protected';
 import { checkJwt } from './auth';
+import axios from 'axios';
 
 
 const app = express();
@@ -25,6 +26,13 @@ app.get('/api/user-data',checkJwt,(req: express.Request, res: express.Response) 
     {
      try{
         const userId = (req as any).auth?.sub;
+
+        await axios.post(`${process.env.LOGGER_URL}/log`, {
+          service: "backend",
+          event: "USER_DATA_REQUESTED",
+          user: userId
+        });
+
         res.json({
     userId,
     protectedData: {
