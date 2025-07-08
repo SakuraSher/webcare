@@ -80,3 +80,7 @@ storybook-static/
 venv/
 ENV/
 env/
+
+.env
+node_modules
+test
