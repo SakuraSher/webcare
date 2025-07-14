@@ -20,6 +20,6 @@ jobs:
     - name: install 
       run: | 
         ls -la
-        cd frontend
+        cd frotend/frontend
         npm run install
         npm run build   
