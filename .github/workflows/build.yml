@@ -19,5 +19,6 @@ jobs:
          node --version
     - name: install 
       run: | 
-        npm install
-        npm build   
+        ls -la
+        npm run install
+        npm run build   
