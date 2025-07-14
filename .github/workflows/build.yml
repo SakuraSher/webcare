@@ -19,6 +19,7 @@ jobs:
          node --version
     - name: install 
       run: | 
+        cd frontend
         ls -la
         npm run install
         npm run build   
