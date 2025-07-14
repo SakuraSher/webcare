@@ -1,0 +1,16 @@
+name: build
+on: 
+  workflow-dispatch:
+  push:
+    branches:
+      - main
+    pull_request:
+      branches:
+        - main
+
+jobs:
+  build::
+    runs-on: github-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
