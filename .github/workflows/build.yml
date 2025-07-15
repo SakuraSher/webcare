@@ -54,6 +54,7 @@ jobs:
     needs: file_changed
     if: ${{ needs.file_changed.outputs.backend == 'true'}}
     steps:
+      - uses: actions/checkout@v3
       - name: checkout and build backend
         run: | 
           echo "backend changes detected"
