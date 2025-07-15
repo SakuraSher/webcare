@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-    pull_request:
-      branches:
-        - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   
@@ -35,7 +35,7 @@ jobs:
   frontend:
     runs-on: ubuntu-latest
     needs: file_changed
-    if: {{ file_changed.outputs.frontend == 'true'}}
+    if: {{  needs.file_changed.outputs.frontend == 'true'}}
     steps:
       - name: checkout and build frontend
         run: | 
@@ -48,7 +48,7 @@ jobs:
   backend:
     runs-on: ubuntu-latest
     needs: file_changed
-    if: {{ file_changed.outputs.backend == 'true'}}
+    if: {{ needs.file_changed.outputs.backend == 'true'}}
     steps:
       - name: checkout and build backend
         run: | 
