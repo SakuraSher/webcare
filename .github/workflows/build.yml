@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         sparse-checkout: |
-         webcare/frotend/
+         /frotend/frontend/
          !*
         sparse-checkout-cone-mode: false
     - name : version
