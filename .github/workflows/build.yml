@@ -19,6 +19,8 @@ jobs:
          /frotend/
          !*
         sparse-checkout-cone-mode: false
+      run: |
+        ls -la
     - name : version
       run: |
          node --version
