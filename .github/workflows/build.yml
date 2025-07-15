@@ -19,6 +19,7 @@ jobs:
          /frotend/
          !*
         sparse-checkout-cone-mode: false
+    - name: test checkout
       run: |
         ls -la
     - name : version
