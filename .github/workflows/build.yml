@@ -13,9 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         sparse-checkout: webcare/frotend/frontend
+        sparse-checkout-cone-mode: false
     - name : version
       run: |
          node --version
