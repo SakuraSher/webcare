@@ -32,7 +32,7 @@ jobs:
           
         
     
-  name: install frontend
+frontend:
   runs-on: ubuntu-latest
   depends-on: file_changed
   if: {{ file_changed.outputs.frontend == 'true'}}
