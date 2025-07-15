@@ -34,7 +34,7 @@ jobs:
     
   frontend:
     runs-on: ubuntu-latest
-    depends-on: file_changed
+    needs: file_changed
     if: {{ file_changed.outputs.frontend == 'true'}}
     steps:
       - name: checkout and build frontend
