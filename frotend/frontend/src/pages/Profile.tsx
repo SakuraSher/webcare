@@ -2,7 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import ProtectedDataDisplay from '../components/ProtectedDataDisplay';
 
 export default function Profile() {
-  const { user, logout } = useAuth0();
+  const { user,  } = useAuth0();
 
   return (
     <div>
