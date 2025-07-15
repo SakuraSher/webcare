@@ -39,6 +39,8 @@ jobs:
     needs: file_changed
     if: ${{  needs.file_changed.outputs.frontend == 'true' }}
     steps:
+      - name: checkout code
+        uses: actions/checkout@v3
       - name: checkout and build frontend
         run: | 
           echo "frontend changes detected"
