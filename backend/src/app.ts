@@ -6,7 +6,7 @@ import 'dotenv/config';
 import protectedRouter from './routes/protected';
 import { checkJwt } from './auth';
 import axios from 'axios';
-
+// adding comment
 const app = express();
 
 // Request logging
