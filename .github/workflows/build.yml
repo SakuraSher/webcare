@@ -19,4 +19,5 @@ jobs:
       run: | 
         cd frotend/frontend
         ls -la
+        npm install
         npm run build   
