@@ -12,3 +12,4 @@ COPY --from=baseimage /app/package*.json ./
 COPY --from=baseimage /app/node_modules ./node_modules
 EXPOSE 3001
 CMD ["npm","start"] 
+# This Dockerfile builds a Node.js application using a multi-stage build.
