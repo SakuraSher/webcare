@@ -9,14 +9,44 @@ on:
         - main
 
 jobs:
-  build:
+  file_changed:
     runs-on: ubuntu-latest
     steps:
+    - uses: /path
+      with:
+        filters: |
+          frontend:
+              
+  
+  build:
+    runs-on: ubuntu-latest
+    depends-on: file_changed
+    outputs:
+      frontend:  ${{ steps.filter.outputs.frontend}}
+      backend:  ${{ steps.filter.outputs.backend}}
+      logger:  ${{ steps.filter.outputs.logger}}
+    steps:
     - name: checkout
-      uses: actions/checkout@v4
-      
-    - name: install 
+      id: filter
+      uses: dorny/paths-filter@v2
+      with:
+        filters: | 
+          frontend:
+            - 'frotend/frontend/**'
+          backend:
+            - 'backend/**'
+          logger:
+            - 'activitylogger/**'
+          
+        
+    
+  name: install frontend
+  runs-on: ubuntu-latest
+  if: {{ file_changed.outputs.frontend == 'true'}}
+  steps:
+    - name: checkout and build frontend
       run: | 
+        echo "frontend changes detected""
         cd frotend/frontend
         ls -la
         npm install
