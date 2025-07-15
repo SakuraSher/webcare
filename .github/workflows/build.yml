@@ -32,28 +32,28 @@ jobs:
           
         
     
-frontend:
-  runs-on: ubuntu-latest
-  depends-on: file_changed
-  if: {{ file_changed.outputs.frontend == 'true'}}
-  steps:
-    - name: checkout and build frontend
-      run: | 
-        echo "frontend changes detected""
-        cd frotend/frontend
-        ls -la
-        npm install
-        npm run build   
+  frontend:
+    runs-on: ubuntu-latest
+    depends-on: file_changed
+    if: {{ file_changed.outputs.frontend == 'true'}}
+    steps:
+      - name: checkout and build frontend
+        run: | 
+          echo "frontend changes detected""
+          cd frotend/frontend
+          ls -la
+          npm install
+          npm run build   
 
-backend:
-  runs-on: ubuntu-latest
-  needs: file_changed
-  if: {{ file_changed.outputs.backend == 'true'}}
-  steps:
-    - name: checkout and build backend
-      run: | 
-        echo "backend changes detected"
-        cd backend
-        ls -la
-        npm install
-        npm run build
+  backend:
+    runs-on: ubuntu-latest
+    needs: file_changed
+    if: {{ file_changed.outputs.backend == 'true'}}
+    steps:
+      - name: checkout and build backend
+        run: | 
+          echo "backend changes detected"
+          cd backend
+          ls -la
+          npm install
+          npm run build
