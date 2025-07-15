@@ -14,11 +14,11 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4
-      with:
-        sparse-checkout: |
-         /frotend/
-         !*
-        sparse-checkout-cone-mode: false
+      # with:
+      #   sparse-checkout: |
+      #    /frotend/
+      #    !*
+      #   sparse-checkout-cone-mode: false
     - name: test checkout
       run: |
         ls -la
